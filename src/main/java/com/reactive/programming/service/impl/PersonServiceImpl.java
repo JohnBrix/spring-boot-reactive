@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import reactor.adapter.rxjava.RxJava3Adapter;
 import reactor.core.publisher.Mono;
 
+import static com.reactive.programming.constant.ExceptionConstants.DATABASE_ERROR;
 import static com.reactive.programming.constant.PersonConstants.PERSON_ENTITY;
 
 /**
@@ -33,7 +34,9 @@ public class PersonServiceImpl implements PersonService {
                     log.info(PERSON_ENTITY,personModel);
 
                     return Mono.just(personModel);
-                });
+                })
+                .switchIfEmpty(Mono.error(new Exception(DATABASE_ERROR)))
+                .onErrorMap(Throwable::getCause);
 
         return RxJava3Adapter.monoToSingle(personModelMono);
     }

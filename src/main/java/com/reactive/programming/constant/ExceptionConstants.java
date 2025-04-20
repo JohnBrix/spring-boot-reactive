@@ -9,4 +9,6 @@ package com.reactive.programming.constant;
 public class ExceptionConstants {
 
     public static final String EXCEPTION = "exception {}";
+    public static final String DATABASE_ERROR = "DATABASE_ERROR";
+
 }
