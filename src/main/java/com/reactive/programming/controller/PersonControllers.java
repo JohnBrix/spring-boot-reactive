@@ -31,6 +31,7 @@ public class PersonControllers {
     @GetMapping("/{id}")
     public Single<ResponseEntity<HttpPersonResponse>>getHelloWorld(@PathVariable Long id){
 
+        //TODO: Fix the onErrorResume
         return personService.getPerson(id)
                 .flatMap(response -> Single.just(new ResponseEntity<>(buildSuccessResponse(response), HttpStatus.OK)))
                 .onErrorResumeNext(errorResponse->{
