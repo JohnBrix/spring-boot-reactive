@@ -10,5 +10,7 @@ public class ExceptionConstants {
 
     public static final String EXCEPTION = "exception {}";
     public static final String DATABASE_ERROR = "DATABASE_ERROR";
+    public static final String ERROR = "Error!";
+    public static final String THERE_S_SOMETHING_WRONG = "There's something wrong!";
 
 }

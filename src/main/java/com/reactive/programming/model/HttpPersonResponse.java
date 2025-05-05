@@ -1,4 +1,4 @@
-package com.reactive.programming.dto;
+package com.reactive.programming.model;
 
 import com.reactive.programming.entity.PersonModel;
 import lombok.Builder;
